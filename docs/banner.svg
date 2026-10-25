@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 628 258" role="img" aria-label="Update Watch badge states">
+  <defs>
+    <style>
+      .chip { fill: #1e2026; stroke: #3a4049; stroke-width: 1; }
+      .label { fill: #aab2bd; font-family: 'Segoe UI', 'Helvetica Neue', sans-serif; font-size: 12px; text-anchor: middle; }
+      .num { font-family: 'Segoe UI', 'Helvetica Neue', sans-serif; font-weight: 700; text-anchor: middle; }
+      .ring { stroke: rgba(0,0,0,0.20); stroke-width: 1; fill: none; }
+    </style>
+  </defs>
+
+  <!-- 1. current (green tick) -->
+  <g transform="translate(8,8)">
+    <rect class="chip" width="140" height="110" rx="12"/>
+    <circle cx="70" cy="46" r="20" fill="#26a269"/>
+    <circle class="ring" cx="70" cy="46" r="20"/>
+    <path d="M61 46 L68 53 L80 39" fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="label" x="70" y="97">certified · current</text>
+  </g>
+
+  <!-- 2. few updates (yellow 3) -->
+  <g transform="translate(160,8)">
+    <rect class="chip" width="140" height="110" rx="12"/>
+    <circle cx="70" cy="46" r="20" fill="#f5c211"/>
+    <circle class="ring" cx="70" cy="46" r="20"/>
+    <text class="num" x="70" y="53" font-size="15" fill="#212121">3</text>
+    <text class="label" x="70" y="97">pending · few</text>
+  </g>
+
+  <!-- 3. backlog (orange 31) -->
+  <g transform="translate(312,8)">
+    <rect class="chip" width="140" height="110" rx="12"/>
+    <circle cx="70" cy="46" r="20" fill="#e66100"/>
+    <circle class="ring" cx="70" cy="46" r="20"/>
+    <text class="num" x="70" y="52" font-size="13" fill="#ffffff">31</text>
+    <text class="label" x="70" y="97">backlog building</text>
+  </g>
+
+  <!-- 4. security (red 7) -->
+  <g transform="translate(464,8)">
+    <rect class="chip" width="140" height="110" rx="12"/>
+    <circle cx="70" cy="46" r="20" fill="#e01b24"/>
+    <circle class="ring" cx="70" cy="46" r="20"/>
+    <text class="num" x="70" y="52" font-size="13" fill="#ffffff">7</text>
+    <text class="label" x="70" y="97">security · act today</text>
+  </g>
+
+  <!-- 5. checking (blue wheel) -->
+  <g transform="translate(8,126)">
+    <rect class="chip" width="140" height="110" rx="12"/>
+    <circle cx="70" cy="46" r="20" fill="#3584e4"/>
+    <circle class="ring" cx="70" cy="46" r="20"/>
+    <circle cx="70" cy="46" r="12" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="4"/>
+    <circle cx="70" cy="46" r="12" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"
+            stroke-dasharray="56.6 75.4" transform="rotate(-90 70 46)"/>
+    <text class="label" x="70" y="97">checking · honest arc</text>
+  </g>
+
+  <!-- 6. failed (red cross) -->
+  <g transform="translate(160,126)">
+    <rect class="chip" width="140" height="110" rx="12"/>
+    <circle cx="70" cy="46" r="20" fill="#e01b24"/>
+    <circle class="ring" cx="70" cy="46" r="20"/>
+    <path d="M62 38 L78 54 M78 38 L62 54" fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round"/>
+    <text class="label" x="70" y="97">failed · never guessed</text>
+  </g>
+
+  <!-- 7. unknown (?) -->
+  <g transform="translate(312,126)">
+    <rect class="chip" width="140" height="110" rx="12"/>
+    <circle cx="70" cy="46" r="20" fill="#707580"/>
+    <circle class="ring" cx="70" cy="46" r="20"/>
+    <text class="num" x="70" y="53" font-size="17" fill="#ffffff">?</text>
+    <text class="label" x="70" y="97">never verified yet</text>
+  </g>
+
+  <!-- 8. stale (dashed certificate) -->
+  <g transform="translate(464,126)">
+    <rect class="chip" width="140" height="110" rx="12"/>
+    <circle cx="70" cy="46" r="20" fill="#f5c211"/>
+    <circle class="ring" cx="70" cy="46" r="20"/>
+    <circle cx="70" cy="46" r="17.5" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-dasharray="5 4"/>
+    <text class="num" x="70" y="53" font-size="15" fill="#212121">9</text>
+    <text class="label" x="70" y="97">certificate expired</text>
+  </g>
+</svg>
