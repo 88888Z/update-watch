@@ -1,0 +1,42 @@
+<schemalist>
+  <schema id="org.gnome.shell.extensions.update-watch" path="/org/gnome/shell/extensions/update-watch/">
+    <key name="auto-check" type="b">
+      <default>true</default>
+      <summary>Refresh metadata automatically</summary>
+      <description>Run the metadata-only refresh periodically. Installs are never automatic.</description>
+    </key>
+    <key name="interval-minutes" type="u">
+      <default>240</default>
+      <summary>Certificate window (minutes)</summary>
+      <description>A successful check certifies the state only for this long. Outside it the badge is marked stale.</description>
+    </key>
+    <key name="timeout-seconds" type="u">
+      <default>120</default>
+      <summary>Per-step check deadline (seconds)</summary>
+      <description>Each step (metadata refresh, list scan) must finish within this time or the check fails honestly.</description>
+    </key>
+    <key name="retry-attempts" type="u">
+      <default>2</default>
+      <summary>Retry attempts after a failed check</summary>
+      <description>Total attempts per check cycle, including the first.</description>
+    </key>
+    <key name="retry-delay-seconds" type="u">
+      <default>30</default>
+      <summary>Delay between retries (seconds)</summary>
+    </key>
+    <key name="backlog-count" type="u">
+      <default>25</default>
+      <summary>Pending count that turns the badge orange</summary>
+      <description>Yellow below, orange at or above. A single security update always wins with red.</description>
+    </key>
+    <key name="pulse" type="b">
+      <default>true</default>
+      <summary>Pulse the badge when updates are pending</summary>
+    </key>
+    <key name="notify" type="b">
+      <default>true</default>
+      <summary>Show a desktop notification when updates are found</summary>
+      <description>Failures are never notified; the badge itself is the truth.</description>
+    </key>
+  </schema>
+</schemalist>

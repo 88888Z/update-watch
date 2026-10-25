@@ -1,0 +1,16 @@
+{
+  "uuid": "update-watch@rich",
+  "name": "Update Watch",
+  "description": "A decide-yourself update indicator for GNOME: a hand-drawn badge on the top bar \u2014 green tick when up to date, red count when updates are pending, live blue spinner with honest progress while checks run. Metadata checks only; nothing ever downloads or installs without your click. No telemetry, no network calls of its own.",
+  "version": 5,
+  "url": "https://github.com/88888Z/update-watch",
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48",
+    "49"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.update-watch",
+  "gettext-domain": "update-watch"
+}

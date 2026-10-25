@@ -1,0 +1,9 @@
+[Unit]
+Description=Run update checker 4x per day
+[Timer]
+OnBootSec=15min
+OnUnitActiveSec=4h
+RandomizedDelaySec=5min
+Persistent=true
+[Install]
+WantedBy=timers.target

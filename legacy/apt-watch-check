@@ -1,0 +1,29 @@
+#!/bin/bash
+set -u
+state="$HOME/.local/share/apt-watch-state"
+notify="$HOME/.local/bin/apt-watch-notify"
+run="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+[ -S "$run/bus" ] || exit 0
+exec 9>"/tmp/apt-check.lock"
+flock -n 9 || exit 0
+
+wstep () { printf 'phase=checking\npct=%s\n' "$1" > "$state"; }
+wstep 10
+
+creep() {
+    while :; do
+        sleep 2
+        printf 'phase=checking\npct=%s\n' "$([ 1 -eq 1 ] && awk -v p="$(grep '^pct=' "$state" | cut -d= -f2)" 'BEGIN{p=p+(60-p)/4; if(p>20)p=p; printf "%d", p+1; if(p>55)p=55}')"  > "$state"
+    done
+}
+creep & creepid=$!
+"$notify" >/dev/null 2>&1
+kill "$creepid" 2>/dev/null; wait "$creepid" 2>/dev/null
+
+wstep 78
+list=$(apt list --upgradable 2>/dev/null | tail -n +2)
+count=$(grep -c . <<<"$list") || count=0
+epoch=$(date +%s)
+top_all=$(awk -F/ '{print $1}' <<<"$list" | paste -sd', ')
+printf 'phase=checking\npct=96\n' > "$state"
+printf 'checked_epoch=%s\ncount=%s\ntop=%s\n' "$epoch" "${count:-0}" "${top_all:-}" > "$state"

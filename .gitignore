@@ -1,0 +1,3 @@
+dist/
+*.swp
+update-watch@rich/schemas/gschemas.compiled

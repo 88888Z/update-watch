@@ -1,0 +1,6 @@
+[Unit]
+Description=Check for pending apt updates and notify (never installs)
+After=network-online.target
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/apt-watch-notify
